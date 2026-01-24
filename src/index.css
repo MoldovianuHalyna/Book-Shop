@@ -1,15 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 @import "tailwindcss";
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@layer base {
+  :root {
+    --color-background: hsl(36 52% 98%);
+    --color-background-soft: hsl(35 38% 95%);
+    --color-surface: hsl(33 28% 92%);
+    --color-border: hsl(30 22% 80%);
+    --color-muted: hsl(32 18% 88%);
+    --color-muted-foreground: hsl(28 14% 42%);
+    --color-foreground: hsl(24 22% 18%);
+    --color-foreground-subtle: hsl(28 12% 32%);
+    --color-accent: hsl(24 92% 57%);
+    --color-accent-soft: hsl(24 85% 90%);
+    --color-accent-foreground: hsl(33 100% 98%);
+    --color-ring: hsl(24 92% 57%);
+    --color-shadow: 32 60% 30% / 0.18;
+    --hover-color: hsla(24, 69%, 14%, 0.82);
+    --hover-color-dark: hsla(35, 90%, 70%, 0.3);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    color-scheme: light;
+    font-family:
+      "Quicksand",
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @layer utilities {
+    .animate-glow {
+      animation: glowPulse 2.4s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes glowPulse {
+    from {
+      opacity: 0.08;
+      filter: drop-shadow(0 0 8px hsla(35, 98%, 78%, 0.55));
+      transform: scale(0.9);
+    }
+
+    to {
+      opacity: 0.95;
+      filter: drop-shadow(0 0 22px hsla(35, 100%, 88%, 0.95));
+      transform: scale(1.05);
+    }
+  }
+
+  .dark {
+    --color-background: hsl(24 20% 10%);
+    --color-background-soft: hsl(26 18% 14%);
+    --color-surface: hsl(28 20% 18%);
+    --color-border: hsl(28 16% 30%);
+    --color-muted: hsl(28 14% 24%);
+    --color-muted-foreground: hsl(36 24% 70%);
+    --color-foreground: hsl(36 36% 92%);
+    --color-foreground-subtle: hsl(34 20% 74%);
+    --color-accent: hsl(24 90% 52%);
+    --color-accent-soft: hsl(24 72% 24%);
+    --color-accent-foreground: hsl(33 100% 96%);
+    --color-ring: hsl(24 88% 54%);
+    --color-shadow: 28 70% 6% / 0.35;
+    --hover-color: hsla(35, 90%, 70%, 0.3);
+
+    color-scheme: dark;
+  }
+
+  body {
+    font-family:
+      "Quicksand",
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100vh;
+  }
+
+  main {
+    background-color: var(--color-background-soft);
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.25em;
+    transition: color 150ms ease;
+  }
+
+  a:hover {
+    color: hsl(24 96% 50%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-foreground);
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-soft);
+    color: var(--color-foreground);
+  }
+
+  .surface-card {
+    background-color: var(--color-surface);
+    color: var(--color-foreground);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    box-shadow: 0 25px 45px -25px hsl(var(--color-shadow));
+  }
+
+  .tag-muted {
+    background-color: var(--color-muted);
+    color: var(--color-muted-foreground);
+  }
 }

@@ -2,15 +2,9 @@ import { DNA } from "react-loader-spinner";
 
 const Loader = () => {
   return (
-    <DNA
-      height="80"
-      width="80"
-      color="#4fa94d"
-      ariaLabel="audio-loading"
-      wrapperStyle={{}}
-      wrapperClass="wrapper-class"
-      visible={true}
-    />
+    <div className="flex items-center justify-center h-screen">
+      <DNA height="80" width="80" ariaLabel="audio-loading" visible={true} />
+    </div>
   );
 };
 export default Loader;
