@@ -10,14 +10,9 @@ const buttonVariants = cva(
         primary:
           "bg-(--color-foreground) text-[var(--color-accent)] rounded-xl shadow-lg dark:shadow-orange-400 hover:bg-(--hover-color)",
         icon: "rounded-full bg-[var(--color-background)] text-[var(--color-foreground)] transition-colors duration-500 hover:text-[var(--color-background)]",
-        destructive: "",
-        outline: "",
-        secondary: "",
-        ghost: "",
-        link: "",
       },
       size: {
-        primary: "h-10 px-4 py-2 rounded-[40px]!",
+        primary: "h-10 px-4 py-2 rounded-[40px]",
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-12 w-[40vh] rounded-md px-6 has-[>svg]:px-4",
@@ -32,7 +27,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "primary",
       size: "default",
     },
   },
