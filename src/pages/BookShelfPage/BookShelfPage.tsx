@@ -106,44 +106,9 @@ const BookShelfPage = () => {
 
   const featured = useMemo(() => books.slice(0, 6), []);
   const remainder = useMemo(() => books.slice(3, 10), []);
-  const isMobile = useIsMobileView();
 
   return (
     <section className="relative flex w-full flex-col gap-12">
-      {!isMobile && (
-        <div className="relative overflow-hidden rounded-3xl border border-[color:var(--color-border)] bg-[color:var(--color-background-soft)]/85 px-8 py-12 shadow-[0_45px_65px_-35px_rgba(30,20,10,0.28)] backdrop-blur-xl sm:px-12">
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -left-10 top-0 h-60 w-60 rounded-full bg-[radial-gradient(circle,_hsla(24,92%,57%,0.25)_0%,_transparent_70%)] blur-3xl" />
-            <div className="absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,_hsla(32,48%,66%,0.18)_0%,_transparent_70%)] blur-3xl" />
-          </div>
-
-          <div className="relative flex flex-col gap-6 text-[color:var(--color-foreground)] sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-3xl space-y-4">
-              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[color:var(--color-muted)]/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--color-muted-foreground)]">
-                Curated Editions
-              </span>
-              <h1 className="text-4xl font-bold sm:text-5xl">
-                Sink into luminous stories and discover your next favorite read
-              </h1>
-              <p className="text-base leading-relaxed text-[color:var(--color-foreground-subtle)] sm:text-lg">
-                From richly annotated hardcovers to pocket-sized journeys,
-                explore a library arranged for serenity and wonder. Each title
-                is handpicked to pair beautifully with a warm cup and a quiet
-                evening.
-              </p>
-            </div>
-
-            <div className="grid gap-2 text-sm text-[color:var(--color-muted-foreground)]">
-              <span className="font-semibold text-[color:var(--color-accent)]">
-                {books.length}+ Collectible Editions
-              </span>
-              <span>Free gift wrapping & next-day dispatch on EU orders.</span>
-              <span>Members earn seasonal perks with every purchase.</span>
-            </div>
-          </div>
-        </div>
-      )}
-
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="grid gap-6">
           <div className="flex flex-col gap-3">
@@ -186,6 +151,37 @@ const BookShelfPage = () => {
             {remainder.map((book) => (
               <BookCard key={book.id} book={book} isDark={isDark} />
             ))}
+          </div>
+        </div>
+      </div>
+      <div className="relative overflow-hidden rounded-3xl border border-[color:var(--color-border)] bg-[color:var(--color-background-soft)]/85 px-8 py-12 shadow-[0_45px_65px_-35px_rgba(30,20,10,0.28)] backdrop-blur-xl sm:px-12">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-10 top-0 h-60 w-60 rounded-full bg-[radial-gradient(circle,_hsla(24,92%,57%,0.25)_0%,_transparent_70%)] blur-3xl" />
+          <div className="absolute -bottom-20 right-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,_hsla(32,48%,66%,0.18)_0%,_transparent_70%)] blur-3xl" />
+        </div>
+
+        <div className="relative flex flex-col gap-6 text-[color:var(--color-foreground)] sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-3xl space-y-4">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[color:var(--color-muted)]/70 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--color-muted-foreground)]">
+              Curated Editions
+            </span>
+            <h1 className="text-4xl font-bold sm:text-5xl">
+              Sink into luminous stories and discover your next favorite read
+            </h1>
+            <p className="text-base leading-relaxed text-[color:var(--color-foreground-subtle)] sm:text-lg">
+              From richly annotated hardcovers to pocket-sized journeys, explore
+              a library arranged for serenity and wonder. Each title is
+              handpicked to pair beautifully with a warm cup and a quiet
+              evening.
+            </p>
+          </div>
+
+          <div className="grid gap-2 text-sm text-[color:var(--color-muted-foreground)]">
+            <span className="font-semibold text-[color:var(--color-accent)]">
+              {books.length}+ Collectible Editions
+            </span>
+            <span>Free gift wrapping & next-day dispatch on EU orders.</span>
+            <span>Members earn seasonal perks with every purchase.</span>
           </div>
         </div>
       </div>
