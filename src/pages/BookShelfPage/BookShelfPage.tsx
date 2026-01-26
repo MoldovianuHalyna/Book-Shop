@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from "react";
 import BookCard, { type BookMeta } from "./BookComponents";
 import { cn } from "../../lib/utils";
 import { LampCeiling } from "lucide-react";
-import useIsMobileView from "../../helpers/useIsMobileView";
 
 const books: BookMeta[] = [
   {
