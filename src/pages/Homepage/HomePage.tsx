@@ -52,19 +52,18 @@ const HomePage = () => {
     <div
       className={`theme-shell relative flex min-h-screen w-full items-center justify-center px-6 py-10 sm:px-10 lg:px-16 ${isDark ? "theme-dark" : "theme-light"}`}
     >
+      <div className="absolute right-1 top-1 flex items-center gap-3 text-sm">
+        <Button
+          type="button"
+          variant="icon"
+          size="icon"
+          onClick={toggleTheme}
+          aria-pressed={isDark}
+        >
+          {isDark ? <Lightbulb /> : <LightbulbOff />}
+        </Button>
+      </div>
       <div className="relative grid w-full max-w-6xl gap-12 overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[color:var(--color-background-soft)]/85 p-10 shadow-2xl shadow-[color:var(--color-shadow)] backdrop-blur-xl transition-colors duration-500 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-        <div className="absolute right-6 top-6 flex items-center gap-3 text-sm">
-          <Button
-            type="button"
-            variant="icon"
-            size="icon"
-            onClick={toggleTheme}
-            aria-pressed={isDark}
-          >
-            {isDark ? <Lightbulb /> : <LightbulbOff />}
-          </Button>
-        </div>
-
         <div className="flex flex-col gap-7">
           <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[color:var(--color-muted)]/70 px-4 py-1 text-xs font-semibold tracking-[0.35em] text-[color:var(--color-muted-foreground)] uppercase">
             Book Shop
