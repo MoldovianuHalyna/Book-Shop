@@ -6,16 +6,22 @@ export type BookMeta = {
   author: string;
   price: string;
   imageSrc: string;
+  summary: string;
 };
 
 type BookCardProps = {
   book: BookMeta;
   isDark: boolean;
+  onSelect?: (book: BookMeta) => void;
 };
 
-const BookCard = ({ book, isDark }: BookCardProps) => {
+const BookCard = ({ book, isDark, onSelect }: BookCardProps) => {
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)]/92 shadow-[0_25px_45px_-28px_rgba(30,20,10,0.32)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_40px_55px_-32px_rgba(30,20,10,0.38)]">
+    <button
+      type="button"
+      onClick={() => onSelect?.(book)}
+      className="group relative flex w-full flex-col overflow-hidden rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)]/92 text-left shadow-[0_25px_45px_-28px_rgba(30,20,10,0.32)] transition-all duration-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[color:var(--color-accent)]/30 hover:-translate-y-2 hover:shadow-[0_40px_55px_-32px_rgba(30,20,10,0.38)]"
+    >
       <div className="relative aspect-[4/5] w-full overflow-hidden">
         <img
           src={book.imageSrc}
@@ -52,7 +58,7 @@ const BookCard = ({ book, isDark }: BookCardProps) => {
           </span>
         </div>
       </div>
-    </article>
+    </button>
   );
 };
 
