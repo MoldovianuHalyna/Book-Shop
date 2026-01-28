@@ -12,7 +12,7 @@ const BookDetailsPage = lazy(
 );
 const BookClubPage = lazy(() => import("./pages/BookClubPage/BookClubPage"));
 const RatingPage = lazy(() => import("./pages/RatingPage/RatingPage"));
-const SeetingsPage = lazy(() => import("./pages/SeetingsPage/SeetingsPage"));
+const SettingsPage = lazy(() => import("./pages/SettingsPage/SettingsPage"));
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           <Route path="/book-details/:id" element={<BookDetailsPage />} />
           <Route path="/book-club" element={<BookClubPage />} />
           <Route path="/rating" element={<RatingPage />} />
-          <Route path="/settings" element={<SeetingsPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 
