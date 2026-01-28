@@ -80,14 +80,14 @@ const HomePage = () => {
               inspiring.
             </p>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-start md:justify-center">
+          <div className="flex flex-col gap-3  sm:items-center sm:justify-start md:justify-center">
             {ctaButtons.map(({ label, to }) => (
               <Button
                 key={to}
                 asChild
                 variant="primary"
                 size={isMobile ? "default" : "lg"}
-                className={cn("w-full sm:w-auto", isMobile && "justify-center")}
+                className={cn("w-full", isMobile && "justify-center")}
               >
                 <NavLink to={to}>{label}</NavLink>
               </Button>
