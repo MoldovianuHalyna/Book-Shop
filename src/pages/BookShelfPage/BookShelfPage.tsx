@@ -12,14 +12,6 @@ import {
   DialogDescription,
   DialogClose,
 } from "../../components/ui/dialog";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-  SheetClose,
-} from "../../components/ui/sheet";
 import { Button } from "../../components/ui/button";
 
 const books: BookMeta[] = [
