@@ -13,13 +13,13 @@ import {
   DialogClose,
 } from "../../components/ui/dialog";
 import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerDescription,
-  DrawerClose,
-} from "../../components/ui/drawer";
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetClose,
+} from "../../components/ui/sheet";
 import { Button } from "../../components/ui/button";
 
 const books: BookMeta[] = [
@@ -252,116 +252,65 @@ const BookShelfPage = () => {
 
       {selectedBook && (
         <>
-          {!isMobile ? (
-            <Dialog open={isDetailsOpen} onOpenChange={handleDetailsOpenChange}>
-              <DialogContent className="max-w-3xl border-[color:var(--color-border)] bg-[color:var(--color-background)]/96 text-[color:var(--color-foreground)] shadow-[0_40px_80px_-45px_rgba(26,18,12,0.55)]">
-                <DialogHeader className="flex flex-col gap-1">
-                  <DialogTitle className="text-2xl font-semibold">
-                    {selectedBook.title}
-                  </DialogTitle>
-                  <DialogDescription className="text-sm text-[color:var(--color-muted-foreground)]">
-                    by {selectedBook.author}
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="grid gap-6 md:grid-cols-[1.05fr_0.95fr]">
-                  <div className="relative overflow-hidden rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)]/95 p-4">
-                    <img
-                      src={selectedBook.imageSrc}
-                      alt={`${selectedBook.title} cover art`}
-                      className="mx-auto max-h-80 w-full rounded-xl object-cover shadow-[0_30px_55px_-28px_rgba(26,20,15,0.45)]"
-                    />
-                    {isDark && (
-                      <span className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_top,_rgba(255,196,130,0.22)_0%,_transparent_68%)] mix-blend-screen" />
-                    )}
-                  </div>
-                  <div className="flex flex-col gap-6">
-                    <div className="flex flex-col gap-3 text-base">
-                      <p className="text-[color:var(--color-foreground-subtle)]">
-                        {selectedBook.summary}
-                      </p>
-                      <div className="flex flex-wrap items-center gap-3 text-sm">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-muted)]/60 px-3 py-1 font-semibold uppercase tracking-[0.28em] text-[color:var(--color-muted-foreground)]">
-                          Collector’s Pick
-                        </span>
-                        <span className="text-lg font-semibold text-[color:var(--color-accent)]">
-                          €{selectedBook.price}
-                        </span>
-                      </div>
+          <Dialog open={isDetailsOpen} onOpenChange={handleDetailsOpenChange}>
+            <DialogContent className="max-w-3xl border-[color:var(--color-border)] bg-[color:var(--color-background)]/96 text-[color:var(--color-foreground)] shadow-[0_40px_80px_-45px_rgba(26,18,12,0.55)]">
+              <DialogHeader className="flex flex-col gap-1">
+                <DialogTitle className="text-2xl font-semibold">
+                  {selectedBook.title}
+                </DialogTitle>
+                <DialogDescription className="text-sm text-[color:var(--color-muted-foreground)]">
+                  by {selectedBook.author}
+                </DialogDescription>
+              </DialogHeader>
+              <div className="grid gap-6 md:grid-cols-[1.05fr_0.95fr]">
+                <div className="relative overflow-hidden rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)]/95 p-4">
+                  <img
+                    src={selectedBook.imageSrc}
+                    alt={`${selectedBook.title} cover art`}
+                    className="mx-auto max-h-80 w-full rounded-xl object-cover shadow-[0_30px_55px_-28px_rgba(26,20,15,0.45)]"
+                  />
+                  {isDark && (
+                    <span className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_top,_rgba(255,196,130,0.22)_0%,_transparent_68%)] mix-blend-screen" />
+                  )}
+                </div>
+                <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-3 text-base">
+                    <p className="text-[color:var(--color-foreground-subtle)]">
+                      {selectedBook.summary}
+                    </p>
+                    <div className="flex flex-wrap items-center gap-3 text-sm">
+                      <span className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-muted)]/60 px-3 py-1 font-semibold uppercase tracking-[0.28em] text-[color:var(--color-muted-foreground)]">
+                        Collector’s Pick
+                      </span>
+                      <span className="text-lg font-semibold text-[color:var(--color-accent)]">
+                        €{selectedBook.price}
+                      </span>
                     </div>
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      <div className="text-sm text-[color:var(--color-muted-foreground)]">
-                        Ships within 24h • Complimentary bookmark • Gift wrap
-                        available
-                      </div>
-                      <div className="flex gap-2">
-                        <Button
-                          variant="primary"
-                          size="default"
-                          onClick={() => handleDetailsOpenChange(false)}
-                          className="rounded-full px-5"
-                        >
-                          Close
-                        </Button>
-                      </div>
+                  </div>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="text-sm text-[color:var(--color-muted-foreground)]">
+                      Ships within 24h • Complimentary bookmark • Gift wrap
+                      available
+                    </div>
+                    <div className="flex gap-2">
+                      <Button
+                        variant="primary"
+                        size="default"
+                        onClick={() => handleDetailsOpenChange(false)}
+                        className="rounded-full px-5"
+                      >
+                        Close
+                      </Button>
                     </div>
                   </div>
                 </div>
-                <DialogClose className="absolute right-4 top-4 text-[color:var(--color-muted-foreground)] transition-colors hover:text-[color:var(--color-foreground)]">
-                  <X className="size-5" aria-hidden="true" />
-                  <span className="sr-only">Close</span>
-                </DialogClose>
-              </DialogContent>
-            </Dialog>
-          ) : (
-            <Drawer open={isDetailsOpen} onOpenChange={handleDetailsOpenChange}>
-              <DrawerContent className="h-[85vh]">
-                <DrawerHeader className="space-y-2">
-                  <DrawerTitle className="text-xl font-semibold">
-                    {selectedBook.title}
-                  </DrawerTitle>
-                  <DrawerDescription className="text-sm text-[color:var(--color-muted-foreground)]">
-                    by {selectedBook.author}
-                  </DrawerDescription>
-                </DrawerHeader>
-                <div className="flex flex-col gap-6 overflow-y-auto px-4 pb-6 pt-4">
-                  <div className="relative overflow-hidden rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)]/95 p-4">
-                    <img
-                      src={selectedBook.imageSrc}
-                      alt={`${selectedBook.title} cover art`}
-                      className="h-full w-full rounded-xl object-contain shadow-[0_30px_55px_-28px_rgba(26,20,15,0.45)]"
-                    />
-                    {isDark && (
-                      <span className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_top,_rgba(255,196,130,0.22)_0%,_transparent_68%)] mix-blend-screen" />
-                    )}
-                  </div>
-                  <p className="text-sm leading-relaxed text-[color:var(--color-foreground-subtle)]">
-                    {selectedBook.summary}
-                  </p>
-                  <div className="flex flex-wrap items-center justify-between gap-4">
-                    <span className="rounded-full bg-[color:var(--color-muted)]/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--color-muted-foreground)]">
-                      Collector’s Pick
-                    </span>
-                    <span className="text-lg font-semibold text-[color:var(--color-accent)]">
-                      €{selectedBook.price}
-                    </span>
-                  </div>
-                  <div className="rounded-2xl bg-[color:var(--color-muted)]/35 px-4 py-3 text-xs text-[color:var(--color-muted-foreground)]">
-                    Ships within 24h • Complimentary bookmark • Gift wrap
-                    available
-                  </div>
-                  <DrawerClose asChild>
-                    <Button
-                      variant="primary"
-                      size="default"
-                      className="w-full rounded-full"
-                    >
-                      Close details
-                    </Button>
-                  </DrawerClose>
-                </div>
-              </DrawerContent>
-            </Drawer>
-          )}
+              </div>
+              <DialogClose className="absolute right-4 top-4 text-[color:var(--color-muted-foreground)] transition-colors hover:text-[color:var(--color-foreground)]">
+                <X className="size-5" aria-hidden="true" />
+                <span className="sr-only">Close</span>
+              </DialogClose>
+            </DialogContent>
+          </Dialog>
         </>
       )}
     </section>
