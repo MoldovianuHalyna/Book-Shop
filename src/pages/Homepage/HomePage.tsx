@@ -41,7 +41,7 @@ const HomePage = () => {
 
   const ctaButtons = useMemo(
     () => [
-      { label: "Book Shelf", to: "/book-shelf" },
+      { label: "Browse Shelf", to: "/book-shelf" },
       { label: "Join the Club", to: "/book-club" },
       { label: "Top Rated", to: "/rating" },
       { label: "Settings", to: "/settings" },
