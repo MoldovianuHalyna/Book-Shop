@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import BookCard, { type BookMeta } from "./BookComponents";
 import { cn } from "../../lib/utils";
 import { LampCeiling, X } from "lucide-react";
-import useIsMobileView from "../../helpers/useIsMobileView";
+
 import {
   Dialog,
   DialogContent,
@@ -120,7 +120,6 @@ const BookShelfPage = () => {
   const [isDark, setIsDark] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<BookMeta | null>(null);
-  const isMobile = useIsMobileView();
 
   useEffect(() => {
     if (typeof document === "undefined") {
