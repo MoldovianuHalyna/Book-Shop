@@ -13,13 +13,13 @@ import {
   DialogClose,
 } from "../../components/ui/dialog";
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-  SheetClose,
-} from "../../components/ui/sheet";
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerDescription,
+  DrawerClose,
+} from "../../components/ui/drawer";
 import { Button } from "../../components/ui/button";
 
 const books: BookMeta[] = [
@@ -313,20 +313,17 @@ const BookShelfPage = () => {
               </DialogContent>
             </Dialog>
           ) : (
-            <Sheet open={isDetailsOpen} onOpenChange={handleDetailsOpenChange}>
-              <SheetContent
-                side="bottom"
-                className="h-[85vh] rounded-t-3xl border-[color:var(--color-border)] bg-[color:var(--color-background)]/96 text-[color:var(--color-foreground)] shadow-[0_-34px_80px_-45px_rgba(26,18,12,0.55)]"
-              >
-                <SheetHeader className="space-y-2">
-                  <SheetTitle className="text-xl font-semibold">
+            <Drawer open={isDetailsOpen} onOpenChange={handleDetailsOpenChange}>
+              <DrawerContent className="h-[85vh]">
+                <DrawerHeader className="space-y-2">
+                  <DrawerTitle className="text-xl font-semibold">
                     {selectedBook.title}
-                  </SheetTitle>
-                  <SheetDescription className="text-sm text-[color:var(--color-muted-foreground)]">
+                  </DrawerTitle>
+                  <DrawerDescription className="text-sm text-[color:var(--color-muted-foreground)]">
                     by {selectedBook.author}
-                  </SheetDescription>
-                </SheetHeader>
-                <div className="flex flex-col gap-6 overflow-y-auto pb-6 pt-4">
+                  </DrawerDescription>
+                </DrawerHeader>
+                <div className="flex flex-col gap-6 overflow-y-auto px-4 pb-6 pt-4">
                   <div className="relative overflow-hidden rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface)]/95 p-4">
                     <img
                       src={selectedBook.imageSrc}
@@ -352,7 +349,7 @@ const BookShelfPage = () => {
                     Ships within 24h • Complimentary bookmark • Gift wrap
                     available
                   </div>
-                  <SheetClose asChild>
+                  <DrawerClose asChild>
                     <Button
                       variant="primary"
                       size="default"
@@ -360,10 +357,10 @@ const BookShelfPage = () => {
                     >
                       Close details
                     </Button>
-                  </SheetClose>
+                  </DrawerClose>
                 </div>
-              </SheetContent>
-            </Sheet>
+              </DrawerContent>
+            </Drawer>
           )}
         </>
       )}
