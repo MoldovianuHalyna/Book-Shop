@@ -84,6 +84,15 @@ const Layout = ({ children }: LayoutProps) => {
                   >
                     <NavLink to="/rating">Rating</NavLink>
                   </Button>
+
+                  <Button
+                    asChild
+                    variant="icon"
+                    size="sm"
+                    className="h-8 rounded-full bg-transparent px-3 text-xs font-semibold text-[color:var(--color-foreground)] hover:bg-[color:var(--color-muted)]/60 sm:h-9 sm:px-4 sm:text-sm"
+                  >
+                    <NavLink to="/book-club">Book Club</NavLink>
+                  </Button>
                   <Button
                     asChild
                     variant="icon"
